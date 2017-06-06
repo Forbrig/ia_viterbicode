@@ -2,6 +2,7 @@ import java.util.*;
 import java.io.*;
 
 class viterbi {
+	private nodo[] _nodo;
 	private int qt_bits;
 	private int[] entrada, modificado[];
 	private int[] codificado;
@@ -31,6 +32,7 @@ class viterbi {
 		return this.entrada;
 	}
 
+	// codificacao dos estados
 	public void codifica () {
 		int estado_atual = 00;
 		int[] aux = this.get_entrada();
@@ -89,6 +91,7 @@ class viterbi {
 	}
 
 	// existe 10% de chance de cagar o bit
+	// pesquisar sobre o "Math.random"
 	public void aplica_ruido () {
 		ruido = new int[get_qt_bits() * 2];
 		for (int i = 0; i < get_qt_bits() * 2; i++) {
@@ -108,8 +111,15 @@ class viterbi {
 		System.out.print("\n");
 	}
 
+	// olhar explicacao em nodo.java
 	public void decodifica () {
+		_nodo = new nodo[8];
+		for(int i = 0; i < 8; i++) { // inicializa os nodos
+			_nodo[i] = new nodo();
+		}
 		
+		/*DECODIFICAR*/
+
 
 	}
 }
