@@ -5,7 +5,7 @@ class viterbi {
 	private int qt_bits;
 	private int[] entrada, modificado[];
 	private int[] codificado;
-	private int[] codificado_ruido;
+	private int[] ruido;
 
 	public viterbi () {
 	}
@@ -80,19 +80,36 @@ class viterbi {
 				break;
 			}
 		}
-		/*
 		for (int x : codificado) {
 			System.out.print(x);
 		}
 		System.out.print("\n");
-		*/
+		
+		aplica_ruido();
 	}
 
+	// existe 10% de chance de cagar o bit
 	public void aplica_ruido () {
-		codificado_ruido = new int[get_qt_bits() * 2];
+		ruido = new int[get_qt_bits() * 2];
 		for (int i = 0; i < get_qt_bits() * 2; i++) {
-			
+			if (Math.random() <= 0.1) { //gera double entre 0.0 e 1.0
+				if (codificado[i] == 0) {
+					ruido[i] = 1;
+				} else {
+					ruido[i] = 0;
+				}
+			} else {
+				ruido[i] = codificado[i];
+			}
 		}
+		for (int x : ruido) {
+			System.out.print(x);
+		}
+		System.out.print("\n");
 	}
 
+	public void decodifica () {
+		
+
+	}
 }
