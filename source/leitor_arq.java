@@ -50,7 +50,7 @@ class leitor_arq {
 			if (debugger == 1) {
 				System.out.println("\nqt_bits == "+ _string.length());
 			}	
-
+			_viterbi.set_qt_bits(_string.length());
 			_viterbi.set_entrada(entrada);
 		}
 	}
